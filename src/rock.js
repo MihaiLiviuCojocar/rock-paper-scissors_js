@@ -2,7 +2,7 @@ Player = function(name){
   this.name = name;
 };
 
-Player.prototype.picks = function(){
-  return this.picks = "rock";
+Player.prototype.picks = function(pick){
+  return this.picks =  pick;
 };
 
