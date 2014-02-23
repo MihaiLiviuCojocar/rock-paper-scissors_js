@@ -10,12 +10,12 @@ describe("Player", function(){
 
   it("can pick rock", function(){
     player.picks("rock");
-    expect(player.picks).toBe("rock")
+    expect(player.pick).toBe("rock")
   });
 
   it("can pick paper", function(){
     player.picks("paper");
-    expect(player.picks).toBe("paper");
+    expect(player.pick).toBe("paper");
   });
 
 });
@@ -43,7 +43,7 @@ describe("Game", function(){
 
     it("there can be only one winner", function(){
       player1.picks("rock");
-      player2.picks("paper");
+      player2.picks("lizard");
       expect(game.winner()).toBe(player1);
     });
 
@@ -111,6 +111,17 @@ describe("Game", function(){
       expect(game.winner()).toBe(player1);
     });
 
+    it("rock is beaten by paper", function(){
+      player1.picks("rock");
+      player2.picks("paper");
+      expect(game.winner()).toBe(player2);
+    });
+
+    it("spock is beaten by lizard", function(){
+      player1.picks("spock");
+      player2.picks("lizard");
+      expect(game.winner()).toBe(player2);
+    });
 
   });
 
