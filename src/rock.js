@@ -12,5 +12,9 @@ Game = function(player1, player2){
 };
 
 Game.prototype.winner = function(){
-  return "Same picks ... nobody wins"
+  if(this.player1.picks == this.player2.picks){
+    return "Same picks ... nobody wins";
+  }else{
+    return player1;
+  }
 };

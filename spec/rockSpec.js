@@ -33,13 +33,84 @@ describe("Game", function(){
     expect(game.player2.name).toBe("Mini Me");
   });
 
-  describe("winning and loosing", function(){
+  describe("Winning and loosing", function(){
 
     it("there can be a draw", function(){
       player1.picks("rock");
       player2.picks("rock");
-      expect(game.winner()).toEqual("Same picks ... nobody wins")
+      expect(game.winner()).toEqual("Same picks ... nobody wins");
     });
+
+    it("there can be only one winner", function(){
+      player1.picks("rock");
+      player2.picks("paper");
+      expect(game.winner()).toBe(player1);
+    });
+
+  });
+
+  describe("Rules of the game", function(){
+
+    it("rock beats scissors", function(){
+      player1.picks("rock");
+      player2.picks("scissors");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("rock beats lizard", function(){
+      player1.picks('rock');
+      player2.picks("lizard");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("paper beats rock", function(){
+      player1.picks("paper");
+      player2.picks("rock");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("paper beats spock", function(){
+      player1.picks("paper");
+      player2.picks("spock");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("scissors beats paper", function(){
+      player1.picks("scissors");
+      player2.picks("paper");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("scissors beats lizard", function(){
+      player1.picks("scissors");
+      player2.picks("lizard");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("spock beats rock", function(){
+      player1.picks("spock");
+      player2.picks("rock");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("spock beats scissors", function(){
+      player1.picks("spock");
+      player2.picks("scissors");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("lizard beats spock", function(){
+      player1.picks("lizard");
+      player2.picks("spock");
+      expect(game.winner()).toBe(player1);
+    });
+
+    it("lizard beats paper", function(){
+      player1.picks("lizard");
+      player2.picks("paper");
+      expect(game.winner()).toBe(player1);
+    });
+
 
   });
 
